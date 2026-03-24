@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 80">
+  <rect x="45" y="18" width="90" height="44" rx="5" fill="#1d2f46" stroke="#4f6f96" stroke-width="3"/>
+  <text x="90" y="46" font-size="16" text-anchor="middle" fill="#dce9f6" font-family="monospace">IC</text>
+  <g stroke="#8ca6c7" stroke-width="4">
+    <line x1="32" y1="24" x2="45" y2="24"/>
+    <line x1="32" y1="32" x2="45" y2="32"/>
+    <line x1="32" y1="40" x2="45" y2="40"/>
+    <line x1="32" y1="48" x2="45" y2="48"/>
+    <line x1="32" y1="56" x2="45" y2="56"/>
+    <line x1="135" y1="24" x2="148" y2="24"/>
+    <line x1="135" y1="32" x2="148" y2="32"/>
+    <line x1="135" y1="40" x2="148" y2="40"/>
+    <line x1="135" y1="48" x2="148" y2="48"/>
+    <line x1="135" y1="56" x2="148" y2="56"/>
+  </g>
+</svg>

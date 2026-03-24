@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 80">
+  <rect x="50" y="15" width="80" height="50" rx="8" fill="#203852" stroke="#4c7fa8" stroke-width="3"/>
+  <text x="90" y="44" font-size="14" text-anchor="middle" fill="#ebf4ff" font-family="monospace">MCU</text>
+  <g stroke="#7da8cf" stroke-width="4">
+    <line x1="40" y1="22" x2="50" y2="22"/>
+    <line x1="40" y1="32" x2="50" y2="32"/>
+    <line x1="40" y1="42" x2="50" y2="42"/>
+    <line x1="40" y1="52" x2="50" y2="52"/>
+    <line x1="130" y1="22" x2="140" y2="22"/>
+    <line x1="130" y1="32" x2="140" y2="32"/>
+    <line x1="130" y1="42" x2="140" y2="42"/>
+    <line x1="130" y1="52" x2="140" y2="52"/>
+  </g>
+  <circle cx="65" cy="30" r="3" fill="#ffca3a"/>
+</svg>
