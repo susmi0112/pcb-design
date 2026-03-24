@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCB Designer Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"
+    ></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-toolbar">
+        <div class="brand-wrap">
+          <h1>PCB Designer</h1>
+          <p>Schematic Workspace</p>
+        </div>
+
+        <div class="tool-strip" aria-label="Main Tools">
+          <button class="icon-btn is-active" type="button" data-tool="select" title="Select">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l7 17 2.3-6.6L20 11z"/></svg>
+          </button>
+          <button class="icon-btn" type="button" data-tool="move" title="Move">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M12 3l-2.5 2.5M12 3l2.5 2.5M12 21l-2.5-2.5M12 21l2.5-2.5M3 12l2.5-2.5M3 12l2.5 2.5M21 12l-2.5-2.5M21 12l-2.5 2.5"/></svg>
+          </button>
+          <button class="icon-btn" type="button" data-tool="wire" title="Wire">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h7v4h4v6h7"/></svg>
+          </button>
+          <button class="icon-btn" type="button" data-tool="pan" title="Pan">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v5M12 22v-5M2 12h5M22 12h-5M5 5l3 3M19 19l-3-3M19 5l-3 3M5 19l3-3"/></svg>
+          </button>
+          <button class="icon-btn" type="button" id="rotateBtn" title="Rotate 15 deg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8V3h-5M20 3l-4.6 4.6M19 12a7 7 0 1 1-2.1-5"/></svg>
+          </button>
+          <button class="icon-btn" type="button" data-tool="delete" title="Delete Mode">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M8 7l1 13h6l1-13"/></svg>
+          </button>
+          <button class="icon-btn" type="button" id="gridToggleBtn" title="Toggle Grid">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 10h16M4 16h16M10 4v16M16 4v16"/></svg>
+          </button>
+          <button class="icon-btn" type="button" id="zoomOutBtn" title="Zoom Out">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 10h8M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0zm11 5 5 5"/></svg>
+          </button>
+          <button class="icon-btn" type="button" id="zoomInBtn" title="Zoom In">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 7v6M7 10h6M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0zm11 5 5 5"/></svg>
+          </button>
+        </div>
+
+        <div class="toolbar-actions">
+          <label for="sheetSize">Sheet</label>
+          <select id="sheetSize">
+            <option value="A4">A4</option>
+            <option value="A3">A3</option>
+            <option value="A2">A2</option>
+          </select>
+          <button type="button" class="small-btn" id="fitBtn">Fit</button>
+        </div>
+      </header>
+
+      <aside class="left-toolbar">
+        <h2>Draw</h2>
+        <button type="button" class="left-tool" data-component="Resistor">
+          <svg viewBox="0 0 80 24" aria-hidden="true"><path d="M2 12h14l4-7 8 14 8-14 8 14 8-14 4 7h14"/></svg>
+          <span>Resistor</span>
+        </button>
+        <button type="button" class="left-tool" data-component="Capacitor">
+          <svg viewBox="0 0 80 24" aria-hidden="true"><path d="M2 12h26M32 4v16M48 4v16M48 12h30"/></svg>
+          <span>Capacitor</span>
+        </button>
+        <button type="button" class="left-tool" data-component="LED">
+          <svg viewBox="0 0 80 24" aria-hidden="true"><path d="M2 12h22M24 4v16l18-8zM46 4v16M46 12h30M52 6l8-5M57 9l8-5"/></svg>
+          <span>LED</span>
+        </button>
+        <button type="button" class="left-tool" data-component="Ground">
+          <svg viewBox="0 0 80 24" aria-hidden="true"><path d="M40 2v7M30 11h20M33 15h14M36 19h8"/></svg>
+          <span>Ground</span>
+        </button>
+        <button type="button" class="left-tool" data-component="Battery">
+          <svg viewBox="0 0 80 24" aria-hidden="true"><path d="M2 12h20M22 5v14M33 7v10M44 5v14M55 7v10M55 12h23"/></svg>
+          <span>Battery</span>
+        </button>
+        <button type="button" class="left-tool" data-component="IC">
+          <svg viewBox="0 0 80 24" aria-hidden="true"><path d="M24 4h32v16H24zM18 6h6M18 12h6M18 18h6M56 6h6M56 12h6M56 18h6"/></svg>
+          <span>IC</span>
+        </button>
+      </aside>
+
+      <main class="canvas-stage">
+        <div class="status-bar">
+          <p id="modeLabel">Tool: Select</p>
+          <p id="statusLabel">Ready</p>
+        </div>
+        <section id="canvasHost" class="canvas-host">
+          <canvas id="pcbCanvas"></canvas>
+        </section>
+      </main>
+
+      <aside class="right-sidebar">
+        <section class="info-card">
+          <h2>Document</h2>
+          <p>Grid: <span id="gridState">On</span></p>
+          <p>Zoom: <span id="zoomState">100%</span></p>
+        </section>
+
+        <section class="info-card">
+          <h2>Actions</h2>
+          <div class="action-row">
+            <button id="saveJsonBtn" type="button" class="small-btn">Save JSON</button>
+            <button id="loadJsonBtn" type="button" class="small-btn">Load JSON</button>
+          </div>
+          <div class="action-row">
+            <button id="exportPngBtn" type="button" class="small-btn">Export PNG</button>
+          </div>
+          <input id="loadJsonInput" type="file" accept="application/json" hidden />
+        </section>
+      </aside>
+    </div>
+  </body>
+</html>
